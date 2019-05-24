@@ -17,6 +17,7 @@
 				%d{HH:mm:ss.SSS} [%thread] %-5level %logger{5} - %msg%n
 			</Pattern>
 		</encoder>
+		<!-- 로그 파일이 50KB를 넘으면 FileNamePattern에 따라 파일을 만들고 10개까지만 만들어라. -->
 		<rollingPolicy class="ch.qos.logback.core.rolling.FixedWindowRollingPolicy">
 			<FileNamePattern>/logex/logex2.%i.log.zip</FileNamePattern>
 			<MinIndex>1</MinIndex>
@@ -48,16 +49,17 @@
 
 
 	<!--
-		com.douzone.logex2 아래 패키지 로그들만  \logex\logex2.log 파일에만  출력하는 로거
+		com.cafe24.logex2 아래 패키지 로그들만  \logex\logex2.log 파일에만  출력하는 로거
+		level을 debug로 해놓으면 모든 오류가 다 나옴 level 수준에 따라 다르게 로그가 남으므로 주의
 	-->
-	<logger name="com.douzone.logex2"  level="debug" additivity="false">
+	<logger name="com.cafe24.logex2"  level="debug" additivity="false">
             <appender-ref ref="fileAppender2" />
     </logger>
     
 	<!--
-		com.douzone.logex3 아래 패키지 로그들만  \logex\logex3.log 파일과 콘솔로 출력하는 로거
+		com.cafe24.logex3 아래 패키지 로그들만  \logex\logex3.log 파일과 콘솔로 출력하는 로거
 	-->
-	<logger name="com.douzone.logex3"  level="warn" additivity="false">
+	<logger name="com.cafe24.logex3"  level="warn" additivity="false">
             <appender-ref ref="fileAppender3" />
 			<appender-ref ref="consoleAppender" />
     </logger>    
